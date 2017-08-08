@@ -13,7 +13,7 @@ public class CalculatorTest {
     public void add() throws Exception {
         int a = 1;
         int b = 3;
-        int expect = 3;
+        int expect = 4;
 
         Calculator calculator = new Calculator();
         int actual = calculator.add(a, b);
