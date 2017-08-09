@@ -35,9 +35,9 @@ public class CalculatorTest {
 
     @Test
     public void multiply() throws  Exception {
-        int a = 2;
-        int b = 3;
-        int expect = 6;
+        int a = 4;
+        int b = 4;
+        int expect = 16;
 
         Calculator calculator = new Calculator();
         int actual = calculator.multiply(a, b);
