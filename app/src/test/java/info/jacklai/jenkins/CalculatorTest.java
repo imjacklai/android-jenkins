@@ -33,4 +33,15 @@ public class CalculatorTest {
         Assert.assertEquals(expect, actual);
     }
 
+    @Test
+    public void multiply() throws  Exception {
+        int a = 2;
+        int b = 3;
+        int expect = 6;
+
+        Calculator calculator = new Calculator();
+        int actual = calculator.multiply(a, b);
+
+        Assert.assertEquals(expect, actual);
+    }
 }
