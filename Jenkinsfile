@@ -10,7 +10,7 @@ node {
     withCredentials([string(credentialsId: 'android_signing_password', variable: 'ANDROID_SIGNING_PASSWORD')]) {
       sh '''
         set +x
-        $ANDROID_SIGNING_PASSWORD
+        echo ${ANDROID_SIGNING_PASSWORD}
       '''
     }
 
