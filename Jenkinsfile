@@ -6,6 +6,7 @@ node {
 
   stage('build') {
     echo 'build and test'
+    set +x
     sh "./gradlew -PkeyAlias='android' -PkeyPassword=$ANDROID_SIGNING_PASSWORD -PstorePassword=$ANDROID_SIGNING_PASSWORD -PstoreFile='/home/imjacklai/ctl.jks' clean test assembleRelease"
   }
 }
