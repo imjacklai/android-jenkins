@@ -6,8 +6,9 @@ node {
 
   stage('move file') {
     echo 'move file'
-    def workspace = pwd() 
-    sh 'mv /home/imjacklai/google-services.json ${workspace}/app/'
+    echo env.WORKSPACE
+    // def workspace = pwd() 
+    // sh 'mv /home/imjacklai/google-services.json ${workspace}/app/'
   }
 
   stage('clean') {
