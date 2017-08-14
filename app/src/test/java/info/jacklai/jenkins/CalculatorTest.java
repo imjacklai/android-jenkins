@@ -44,4 +44,16 @@ public class CalculatorTest {
 
         Assert.assertEquals(expect, actual);
     }
+
+    @Test
+    public void divide() throws  Exception {
+        int a = 8;
+        int b = 4;
+        double expect = 2;
+
+        Calculator calculator = new Calculator();
+        double actual = calculator.divide(a, b);
+
+        Assert.assertEquals(expect, actual, 0.001);
+    }
 }
