@@ -6,7 +6,13 @@ node {
 
   stage('build') {
     echo 'build and test'
-    echo credentials('android_signing_password')
+
+    withCredentials([string(credentialsId: 'android_signing_password', variable: 'ANDROID_SIGNING_PASSWORD')]) {
+      sh '''
+        set +x
+        $ANDROID_SIGNING_PASSWORD
+      '''
+    }
 
     // withCredentials([usernameColonPassword(credentialsId: 'android_signing_password', variable: 'ANDROID_SIGNING_PASSWORD')]) {
     //   sh '''
