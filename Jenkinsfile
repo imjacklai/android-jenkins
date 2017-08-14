@@ -6,13 +6,14 @@ node {
 
   stage('build') {
     echo 'build and test'
+    echo credentials('android_signing_password')
 
-    withCredentials([usernameColonPassword(credentialsId: 'android_signing_password', variable: 'ANDROID_SIGNING_PASSWORD')]) {
-      sh '''
-        set +x
-        $ANDROID_SIGNING_PASSWORD
-      '''
-    }
+    // withCredentials([usernameColonPassword(credentialsId: 'android_signing_password', variable: 'ANDROID_SIGNING_PASSWORD')]) {
+    //   sh '''
+    //     set +x
+    //     $ANDROID_SIGNING_PASSWORD
+    //   '''
+    // }
     
     // sh "./gradlew -PkeyAlias='android' -PkeyPassword=$ANDROID_SIGNING_PASSWORD -PstorePassword=$ANDROID_SIGNING_PASSWORD -PstoreFile='/home/imjacklai/ctl.jks' clean test assembleRelease"
   }
