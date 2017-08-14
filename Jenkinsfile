@@ -6,6 +6,7 @@ node {
 
   stage('move file') {
     echo 'move file'
+    def workspace = pwd() 
     sh 'echo ${workspace}'
     // sh 'mv /home/imjacklai/google-services.json' + ' ' + newName
   }
