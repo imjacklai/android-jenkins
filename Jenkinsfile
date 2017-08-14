@@ -1,7 +1,13 @@
 node {
-	stage('checkout') {
-  	echo 'checkout from github'
+  stage('checkout') {
+    echo 'checkout from github'
     git url: 'https://github.com/imjacklai/android-jenkins.git', branch: 'master'
+  }
+
+  stage('move file') {
+    echo 'move file'
+    echo ${workspace}
+    // sh 'mv /home/imjacklai/google-services.json' + ' ' + newName
   }
 
   stage('clean') {
@@ -24,8 +30,8 @@ node {
     }
   }
 
-  stage('upload to google play') {
-    echo 'upload to google play'
-    androidApkUpload googleCredentialsId: 'android-interest', apkFilesPattern: '**/*-release.apk', trackName: 'alpha', recentChangeList: [[language: 'zh-TW', text: "Alpha 新版上架！"]]
-  }
+  // stage('upload to google play') {
+  //   echo 'upload to google play'
+  //   androidApkUpload googleCredentialsId: 'android-interest', apkFilesPattern: '**/*-release.apk', trackName: 'alpha', recentChangeList: [[language: 'zh-TW', text: "Alpha 新版上架！"]]
+  // }
 }
