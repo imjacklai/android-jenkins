@@ -4,14 +4,34 @@ node {
     git url: 'https://github.com/imjacklai/android-jenkins.git', branch: 'master'
   }
 
-  stage('build') {
-    echo 'build and test'
+  stage('clean') {
+    echo 'clean'
+    sh './gradlew clean'
+  }
 
-    withCredentials([string(credentialsId: 'android_signing_password', variable: 'ANDROID_SIGNING_PASSWORD')]) {
+  stage('test') {
+    echo 'test'
+    sh './gradlew test'
+  }
+
+  stage('build apk') {
+    echo 'build apk'
+    withCredentials([string(credentialsId: 'android_signing_password', variable: 'PASSWORD')]) {
       sh '''
         set +x
-        ./gradlew -PkeyAlias='android' -PkeyPassword=${ANDROID_SIGNING_PASSWORD} -PstorePassword=${ANDROID_SIGNING_PASSWORD} -PstoreFile='/home/imjacklai/ctl.jks' clean test assembleRelease
+        ./gradlew -PkeyAlias='android' -PkeyPassword=${PASSWORD} -PstorePassword=${PASSWORD} -PstoreFile='/home/imjacklai/ctl.jks' assembleRelease
       '''
     }
   }
+
+  // stage('build') {
+  //   echo 'build and test'
+
+  //   withCredentials([string(credentialsId: 'android_signing_password', variable: 'PASSWORD')]) {
+  //     sh '''
+  //       set +x
+  //       ./gradlew -PkeyAlias='android' -PkeyPassword=${PASSWORD} -PstorePassword=${PASSWORD} -PstoreFile='/home/imjacklai/ctl.jks' clean test assembleRelease
+  //     '''
+  //   }
+  // }
 }
