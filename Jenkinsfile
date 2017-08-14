@@ -1,6 +1,6 @@
 node {
   stage('Test') {
-    echo 'Test'
+    echo 'Test1'
   }
 
 	stage('checkout') {
