@@ -6,7 +6,7 @@ node {
 
   stage('copy file') {
     echo 'copy file'
-    sh "cp /home/imjacklai/google-services.json ${env.WORKSPACE}/app/"
+    sh "sudo cp /home/imjacklai/google-services.json ${env.WORKSPACE}/app/"
   }
 
   stage('clean') {
