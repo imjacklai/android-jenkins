@@ -4,9 +4,9 @@ node {
     git url: 'https://github.com/imjacklai/android-jenkins.git', branch: 'master'
   }
 
-  stage('move file') {
-    echo 'move file'
-    sh "mv /var/lib/jenkins/google-services.json ${env.WORKSPACE}/app/"
+  stage('copy file') {
+    echo 'copy file'
+    sh "cp /home/imjacklai/google-services.json ${env.WORKSPACE}/app/"
   }
 
   stage('clean') {
