@@ -32,7 +32,7 @@ node {
 
     stage('upload to google play') {
       echo 'upload to google play'
-      androidApkUpload googleCredentialsId: 'android-interest', apkFilesPattern: '**/*-release.apk', trackName: 'alpha', recentChangeList: [[language: 'zh-TW', text: "Alpha 新版上架！"]]
+      androidApkUpload googleCredentialsId: 'android-jenkins', apkFilesPattern: '**/*-release.apk', trackName: 'alpha', recentChangeList: [[language: 'zh-TW', text: "Alpha 新版上架！"]]
     }
   }
 }
